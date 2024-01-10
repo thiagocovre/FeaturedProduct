@@ -1,0 +1,47 @@
+<?php
+$featuredProduct = $block->getFeaturedProduct();
+if ($featuredProduct):
+    $stockQty = $block->getStockQty($featuredProduct->getId());
+?>
+    <div class="featured-product" id="featured-product-block">
+        <div class="custom-featured-product-content">
+            <div class="custom-featured-product-title">NOVIDADE!</div>
+            <div class="custom-featured-product-details">
+                <div class="custom-featured-product-image">
+                    <img src="<?php echo $block->getFeaturedProductImageUrl(); ?>" alt="<?php echo $block->escapeHtml($block->getFeaturedProduct()->getName()); ?>" width="400" height="400">
+                </div>
+                <div class="custom-featured-product-info">
+                    <div class="custom-featured-product-name">
+                        <h2 class="product-title"><strong><?php echo $block->escapeHtml($block->getFeaturedProduct()->getName()); ?></strong> </h2>
+                    </div>
+                    <div class="product-price">
+                        <?php echo $block->escapeHtml($block->getProductPrice($featuredProduct)); ?>
+                    </div>
+                    <div class="custom-featured-product-stock" id="stock-quantity">
+                        <?php echo __('Restam disponíveis apenas %1 itens. Compre agora!', $stockQty,); ?>
+                    </div>
+                    <div class="custom-featured-product-action">
+                        <a href="<?php echo $block->escapeUrl($featuredProduct->getProductUrl()); ?>" class="more-info">
+                            <?php echo __('Ver Detalhes'); ?>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/x-magento-init">
+{
+    "#featured-product-block": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "featured-product": {
+                    "component": "Magento_Theme/js/featured-product"
+                }
+            }
+        }
+    }
+}
+</script>
+<?php endif; ?>
+
+

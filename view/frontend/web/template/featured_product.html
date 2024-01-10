@@ -1,0 +1,22 @@
+<div class="featured-product" id="featured-product-block">
+    <div class="custom-featured-product-content">
+        <div class="custom-featured-product-title">PROMOÇÃO DA SEMANA</div>
+        <div class="custom-featured-product-details">
+            <div class="custom-featured-product-image">
+                <img data-bind="attr: { src: imageUrl, alt: name }, width: 400, height: 400" />
+            </div>
+            <div class="custom-featured-product-info">
+                <div class="custom-featured-product-name">
+                    <h2 class="product-title"><strong data-bind="text: name"></strong></h2>
+                </div>
+                <div class="product-price" data-bind="text: price"></div>
+                <div class="custom-featured-product-stock" id="stock-quantity">
+                    <span data-bind="i18n: 'Restam disponíveis apenas ' + stockQty + ' itens. Compre agora!'"></span>
+                </div>
+                <div class="custom-featured-product-action">
+                    <a data-bind="attr: { href: productUrl }, i18n: 'Ver Detalhes'" class="more-info"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
